@@ -1,0 +1,48 @@
+{%  extends 'portfolio/base.html' %}
+		
+		{% block content %}
+
+	
+		{% load static  %}
+
+		<div class="container d-flex justify-content-center ">
+			<img  src="{%  static 'portfolio/mypic.png' %}" height="550">
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<h2 class="font-weight-bold display-4">Portfolio</h2>
+		<hr>
+
+		{% for project in  projects %}
+		<div class="container mt-5">
+		  <div class="row">
+		  	 <div class="col-sm-2">
+		    
+		    </div>
+		    <div class="col-sm-8">
+		      <figure class="figure">
+				  <img src="{{ project.image.url }}"  class="figure-img img-fluid rounded " alt="...">
+				  <figcaption class="figure-caption font-weight-bold">{{project.title}}</figcaption>
+				  <p>{{project.description}}</p>
+
+				</figure>
+		    </div>
+		    <div class="col-sm-2">
+		    
+		    </div>
+		  </div>
+		  <br>
+		</div>
+
+		
+				{% if project.url %}
+		<a href="{{project.url}}">LINK</a>
+		{% endif %}
+		{%  endfor %}
+
+    
+    	{%  endblock %}
+
+
